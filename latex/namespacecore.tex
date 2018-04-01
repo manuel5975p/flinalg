@@ -1,0 +1,82 @@
+\hypertarget{namespacecore}{}\section{core Namespace Reference}
+\label{namespacecore}\index{core@{core}}
+
+
+The core namespace contains the core functions and classes such as the \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} base class template and functions for basic decompositions.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcore_1_1_column_pointer}{Column\+Pointer}}
+\item 
+class \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}
+\item 
+class \mbox{\hyperlink{classcore_1_1_permutation}{Permutation}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacecore_a454289219bf2250360f530e482af7755}\label{namespacecore_a454289219bf2250360f530e482af7755}} 
+{\footnotesize template$<$typename T $>$ }\\unsigned int {\bfseries kernel\+Dim} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ m)
+\item 
+\mbox{\Hypertarget{namespacecore_ad18b5e9458c79ee9eb1c2e9e1529f896}\label{namespacecore_ad18b5e9458c79ee9eb1c2e9e1529f896}} 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ {\bfseries kernel} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&m)
+\item 
+\mbox{\Hypertarget{namespacecore_a2484796fd2d0c666f35c8405bb87976f}\label{namespacecore_a2484796fd2d0c666f35c8405bb87976f}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, \+\_\+\+\_\+float128 f)
+\item 
+\mbox{\Hypertarget{namespacecore_abdafacfcc7ff1bdb19a7dadd98a3e6c0}\label{namespacecore_abdafacfcc7ff1bdb19a7dadd98a3e6c0}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries LU} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ m, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ $\ast$L, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ $\ast$U, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ $\ast$P)
+\item 
+\mbox{\Hypertarget{namespacecore_ac5b64383255a4a138afb4523860123a8}\label{namespacecore_ac5b64383255a4a138afb4523860123a8}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&a)
+\item 
+\mbox{\Hypertarget{namespacecore_a26f06bd6778d82d5b49bf8267f735d4d}\label{namespacecore_a26f06bd6778d82d5b49bf8267f735d4d}} 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ {\bfseries identity} (unsigned int n)
+\item 
+\mbox{\Hypertarget{namespacecore_a4d6fc95455392799334ded21f71dab52}\label{namespacecore_a4d6fc95455392799334ded21f71dab52}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries vector\+Norm\+Sq} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&v)
+\item 
+\mbox{\Hypertarget{namespacecore_a25f5a82e60ecc8c6790e09d62b1c3bf0}\label{namespacecore_a25f5a82e60ecc8c6790e09d62b1c3bf0}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries vector\+Norm} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&v)
+\item 
+\mbox{\Hypertarget{namespacecore_ac7268b3bde23ef7ca50fbd9e2532696a}\label{namespacecore_ac7268b3bde23ef7ca50fbd9e2532696a}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries vector\+Norm} (\mbox{\hyperlink{classcore_1_1_column_pointer}{Column\+Pointer}}$<$ T $>$ cp, unsigned int length)
+\item 
+\mbox{\Hypertarget{namespacecore_a8bf120c26c4c4ed9bf13e71ecec1e39e}\label{namespacecore_a8bf120c26c4c4ed9bf13e71ecec1e39e}} 
+{\footnotesize template$<$typename T $>$ }\\bool {\bfseries norm\+Check} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&c)
+\item 
+\mbox{\Hypertarget{namespacecore_abc475887ff943e3e13239581b4a01b45}\label{namespacecore_abc475887ff943e3e13239581b4a01b45}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries signum} (T \&t)
+\item 
+\mbox{\Hypertarget{namespacecore_af1aea3d6a184eac75093e772d5983f01}\label{namespacecore_af1aea3d6a184eac75093e772d5983f01}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries QR} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ m, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ $\ast$Q, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ $\ast$R)
+\item 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{namespacecore_a8e026b46f671dd953967abc95887e364}{solve}} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ m, \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ b)
+\begin{DoxyCompactList}\small\item\em Solves a linear equation system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The core namespace contains the core functions and classes such as the \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} base class template and functions for basic decompositions. 
+
+This namespace constains the implementations of QR, LU and singular value decomposition algorithms. Further it contains function templates for solving linear equation systems numerically and calculating the eigensystem of matrices. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecore_a8e026b46f671dd953967abc95887e364}\label{namespacecore_a8e026b46f671dd953967abc95887e364}} 
+\index{core@{core}!solve@{solve}}
+\index{solve@{solve}!core@{core}}
+\subsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$T$>$ core\+::solve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$}]{m,  }\item[{\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$}]{b }\end{DoxyParamCaption})}
+
+
+
+Solves a linear equation system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Coefficient \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \\
+\hline
+{\em b} & Right side of the equation system \\
+\hline
+\end{DoxyParams}

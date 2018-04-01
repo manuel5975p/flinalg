@@ -1,0 +1,91 @@
+\hypertarget{classcore_1_1_matrix}{}\section{core\+:\+:Matrix$<$ T $>$ Class Template Reference}
+\label{classcore_1_1_matrix}\index{core\+::\+Matrix$<$ T $>$@{core\+::\+Matrix$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ae28b1ab3cc1a648f777a76c76242663c}\label{classcore_1_1_matrix_ae28b1ab3cc1a648f777a76c76242663c}} 
+{\bfseries Matrix} (int \+\_\+m, int \+\_\+n)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a3f02c579bc272fc7257d0209a08e4f71}\label{classcore_1_1_matrix_a3f02c579bc272fc7257d0209a08e4f71}} 
+{\bfseries Matrix} (int dummy)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a26b11ae48366202abdcfec19b94ca710}\label{classcore_1_1_matrix_a26b11ae48366202abdcfec19b94ca710}} 
+{\bfseries Matrix} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&o)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ab67783e37f22c264e3cf27f407ea3fed}\label{classcore_1_1_matrix_ab67783e37f22c264e3cf27f407ea3fed}} 
+{\bfseries Matrix} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&\&o)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ab0fa7ab1e930fddbb6a7b4d60d390343}\label{classcore_1_1_matrix_ab0fa7ab1e930fddbb6a7b4d60d390343}} 
+void {\bfseries mult\+Into} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&space, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a101b4850cdee657d35b3249008329e85}\label{classcore_1_1_matrix_a101b4850cdee657d35b3249008329e85}} 
+void {\bfseries mult\+Into} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&space, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other, bool second\+Symmetric) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a81c059a8ff83fef44cea83ba9b4e7707}\label{classcore_1_1_matrix_a81c059a8ff83fef44cea83ba9b4e7707}} 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} {\bfseries mult} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ade31934c39c85c46444849d067812773}\label{classcore_1_1_matrix_ade31934c39c85c46444849d067812773}} 
+void {\bfseries subtract\+Inplace} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a6ed28cc5a8c7c06c8f5a1dfdb3b58df6}\label{classcore_1_1_matrix_a6ed28cc5a8c7c06c8f5a1dfdb3b58df6}} 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} {\bfseries mult} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other, bool second\+Symmetric) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ad5da63a27aa394d5cd45994fe556f3cc}\label{classcore_1_1_matrix_ad5da63a27aa394d5cd45994fe556f3cc}} 
+void {\bfseries mult\+Into\+Firstdiag} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&space, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other, unsigned int diag\+\_\+ones) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ae3073b1391d1f17a242c8da1b70405dc}\label{classcore_1_1_matrix_ae3073b1391d1f17a242c8da1b70405dc}} 
+void {\bfseries mult\+Into\+Seconddiag} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&space, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other, unsigned int diag\+\_\+ones) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_af24ac738ad8b0826f8cb735d33b92b59}\label{classcore_1_1_matrix_af24ac738ad8b0826f8cb735d33b92b59}} 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} {\bfseries add} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}} \&other)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ad0134e59ea31aa3f20f0734108f71d1f}\label{classcore_1_1_matrix_ad0134e59ea31aa3f20f0734108f71d1f}} 
+T $\ast$ {\bfseries operator\mbox{[}$\,$\mbox{]}} (unsigned int pos)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a7f3ce1dd749cf3dc2590d9a98baafe5d}\label{classcore_1_1_matrix_a7f3ce1dd749cf3dc2590d9a98baafe5d}} 
+const T $\ast$ {\bfseries operator\mbox{[}$\,$\mbox{]}} (unsigned int pos) const
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_aef608ea918835f84b212db39db0b823d}\label{classcore_1_1_matrix_aef608ea918835f84b212db39db0b823d}} 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \& {\bfseries operator=} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&\&o)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a190c9ba75a1dbc8a6d611695345654d2}\label{classcore_1_1_matrix_a190c9ba75a1dbc8a6d611695345654d2}} 
+\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&o)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a64da6958d83cc9db3b824319d2af667d}\label{classcore_1_1_matrix_a64da6958d83cc9db3b824319d2af667d}} 
+\mbox{\hyperlink{classcore_1_1_column_pointer}{Column\+Pointer}}$<$ T $>$ {\bfseries get\+Column} (int c)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a983910678c3ad5019eb23807cb7dcf19}\label{classcore_1_1_matrix_a983910678c3ad5019eb23807cb7dcf19}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a7b66fe039eb29ea15d74528f52e3f307}\label{classcore_1_1_matrix_a7b66fe039eb29ea15d74528f52e3f307}} 
+void {\bfseries swap} (\mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a3a2a937b8411fd750a2dee57ddc20823}\label{classcore_1_1_matrix_a3a2a937b8411fd750a2dee57ddc20823}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to, const T \&factor)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a0b18ec1f633edab803be8c532ba4c21f}\label{classcore_1_1_matrix_a0b18ec1f633edab803be8c532ba4c21f}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to, const T \&factor, unsigned int startpos)
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_ad4686ea829f17acd83e4cc6e5cdc2fe0}\label{classcore_1_1_matrix_ad4686ea829f17acd83e4cc6e5cdc2fe0}} 
+void {\bfseries permute\+Rows} (unsigned int from, unsigned int to)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_a6897a963f7030ab4bc812d506ebe501f}\label{classcore_1_1_matrix_a6897a963f7030ab4bc812d506ebe501f}} 
+unsigned int {\bfseries m}
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_afd4b718e20b4a0605ebe45730c41da7a}\label{classcore_1_1_matrix_afd4b718e20b4a0605ebe45730c41da7a}} 
+unsigned int {\bfseries n}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcore_1_1_matrix_abe73619c6b45315d7efd6a2074ed71bd}\label{classcore_1_1_matrix_abe73619c6b45315d7efd6a2074ed71bd}} 
+{\footnotesize template$<$typename U $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{classcore_1_1_matrix}{Matrix}}$<$ U $>$ \&a)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Matrix.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,91 @@
+\hypertarget{class_matrix}{}\section{Matrix$<$ T $>$ Class Template Reference}
+\label{class_matrix}\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matrix_a8e63c9cbaaaa5700b029af44ccb76c73}\label{class_matrix_a8e63c9cbaaaa5700b029af44ccb76c73}} 
+{\bfseries Matrix} (int \+\_\+m, int \+\_\+n)
+\item 
+\mbox{\Hypertarget{class_matrix_ac589bb328aa3e0eb6411564a3e87b52e}\label{class_matrix_ac589bb328aa3e0eb6411564a3e87b52e}} 
+{\bfseries Matrix} (int dummy)
+\item 
+\mbox{\Hypertarget{class_matrix_a015b03ab9c56bc8620d987a0b4fc4f0d}\label{class_matrix_a015b03ab9c56bc8620d987a0b4fc4f0d}} 
+{\bfseries Matrix} (const \mbox{\hyperlink{class_matrix}{Matrix}} \&o)
+\item 
+\mbox{\Hypertarget{class_matrix_ac3273da68b57c2e61a3b6bf468a69d7f}\label{class_matrix_ac3273da68b57c2e61a3b6bf468a69d7f}} 
+{\bfseries Matrix} (\mbox{\hyperlink{class_matrix}{Matrix}} \&\&o)
+\item 
+\mbox{\Hypertarget{class_matrix_af7565348aa0284e36cbda0bade890c77}\label{class_matrix_af7565348aa0284e36cbda0bade890c77}} 
+void {\bfseries mult\+Into} (\mbox{\hyperlink{class_matrix}{Matrix}} \&space, const \mbox{\hyperlink{class_matrix}{Matrix}} \&other) const
+\item 
+\mbox{\Hypertarget{class_matrix_a6a63055b3fd0b23bd07720cf4c3cf319}\label{class_matrix_a6a63055b3fd0b23bd07720cf4c3cf319}} 
+void {\bfseries mult\+Into} (\mbox{\hyperlink{class_matrix}{Matrix}} \&space, const \mbox{\hyperlink{class_matrix}{Matrix}} \&other, bool second\+Symmetric) const
+\item 
+\mbox{\Hypertarget{class_matrix_ab1bb1dae649d99c84aab6501de899422}\label{class_matrix_ab1bb1dae649d99c84aab6501de899422}} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries mult} (const \mbox{\hyperlink{class_matrix}{Matrix}} \&other) const
+\item 
+\mbox{\Hypertarget{class_matrix_a43aa15e36228d672cb817b5dbca00f58}\label{class_matrix_a43aa15e36228d672cb817b5dbca00f58}} 
+void {\bfseries subtract\+Inplace} (const \mbox{\hyperlink{class_matrix}{Matrix}} \&other)
+\item 
+\mbox{\Hypertarget{class_matrix_a25f80fd0cbbaf757774b82330c25498b}\label{class_matrix_a25f80fd0cbbaf757774b82330c25498b}} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries mult} (const \mbox{\hyperlink{class_matrix}{Matrix}} \&other, bool second\+Symmetric) const
+\item 
+\mbox{\Hypertarget{class_matrix_a9616e1c8e2fc6d0f23f68e24a360bb74}\label{class_matrix_a9616e1c8e2fc6d0f23f68e24a360bb74}} 
+void {\bfseries mult\+Into\+Firstdiag} (\mbox{\hyperlink{class_matrix}{Matrix}} \&space, const \mbox{\hyperlink{class_matrix}{Matrix}} \&other, unsigned int diag\+\_\+ones) const
+\item 
+\mbox{\Hypertarget{class_matrix_ae79ba08289fa4a5cce500600bceecf09}\label{class_matrix_ae79ba08289fa4a5cce500600bceecf09}} 
+void {\bfseries mult\+Into\+Seconddiag} (\mbox{\hyperlink{class_matrix}{Matrix}} \&space, const \mbox{\hyperlink{class_matrix}{Matrix}} \&other, unsigned int diag\+\_\+ones) const
+\item 
+\mbox{\Hypertarget{class_matrix_ad87e947c927874f9beda7d16fff5afc7}\label{class_matrix_ad87e947c927874f9beda7d16fff5afc7}} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries add} (const \mbox{\hyperlink{class_matrix}{Matrix}} \&other)
+\item 
+\mbox{\Hypertarget{class_matrix_af617041ed6031b8ba6957019b603a7b8}\label{class_matrix_af617041ed6031b8ba6957019b603a7b8}} 
+T $\ast$ {\bfseries operator\mbox{[}$\,$\mbox{]}} (unsigned int pos)
+\item 
+\mbox{\Hypertarget{class_matrix_a04e43936605f47cfdca18ae5a2be6408}\label{class_matrix_a04e43936605f47cfdca18ae5a2be6408}} 
+const T $\ast$ {\bfseries operator\mbox{[}$\,$\mbox{]}} (unsigned int pos) const
+\item 
+\mbox{\Hypertarget{class_matrix_ad91f6e9d9e202f2659f82a8a5f66f1a2}\label{class_matrix_ad91f6e9d9e202f2659f82a8a5f66f1a2}} 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& {\bfseries operator=} (\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&\&o)
+\item 
+\mbox{\Hypertarget{class_matrix_a8928d5b346233d7e5202d6a38ee517e9}\label{class_matrix_a8928d5b346233d7e5202d6a38ee517e9}} 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&o)
+\item 
+\mbox{\Hypertarget{class_matrix_a307da11b5adcd2d12ce2494000469516}\label{class_matrix_a307da11b5adcd2d12ce2494000469516}} 
+\mbox{\hyperlink{class_column_pointer}{Column\+Pointer}}$<$ T $>$ {\bfseries get\+Column} (int c)
+\item 
+\mbox{\Hypertarget{class_matrix_a7f565908db48ce8cac5ca92fa2490dcb}\label{class_matrix_a7f565908db48ce8cac5ca92fa2490dcb}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to)
+\item 
+\mbox{\Hypertarget{class_matrix_a46e6f9250a3558265d656d758fc3ceef}\label{class_matrix_a46e6f9250a3558265d656d758fc3ceef}} 
+void {\bfseries swap} (\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\Hypertarget{class_matrix_a477f0b864eb579894806445ba3c61de3}\label{class_matrix_a477f0b864eb579894806445ba3c61de3}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to, const T \&factor)
+\item 
+\mbox{\Hypertarget{class_matrix_a227499495cddf99812735f8f0b8b33e0}\label{class_matrix_a227499495cddf99812735f8f0b8b33e0}} 
+void {\bfseries add\+Row} (unsigned int from, unsigned int to, const T \&factor, unsigned int startpos)
+\item 
+\mbox{\Hypertarget{class_matrix_ad81efa0eecf3b1ecf464b70f405aa246}\label{class_matrix_ad81efa0eecf3b1ecf464b70f405aa246}} 
+void {\bfseries permute\+Rows} (unsigned int from, unsigned int to)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matrix_a0a922a1712cf7e9afb32fd8fff6809df}\label{class_matrix_a0a922a1712cf7e9afb32fd8fff6809df}} 
+unsigned int {\bfseries m}
+\item 
+\mbox{\Hypertarget{class_matrix_afe2ef09343ff36b98618d696e7b232e3}\label{class_matrix_afe2ef09343ff36b98618d696e7b232e3}} 
+unsigned int {\bfseries n}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matrix_abe73619c6b45315d7efd6a2074ed71bd}\label{class_matrix_abe73619c6b45315d7efd6a2074ed71bd}} 
+{\footnotesize template$<$typename U $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ U $>$ \&a)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Matrix.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{_matrix_8h}{}\section{Matrix.\+h File Reference}
+\label{_matrix_8h}\index{Matrix.\+h@{Matrix.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_column_pointer}{Column\+Pointer$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_matrix}{Matrix$<$ T $>$}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_matrix_8h_ac017769957d46ba9c2ac30818a147830}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&a)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \mbox{\hyperlink{_matrix_8h_a72381657ef512a52e067d4a6112e1d4c}{identity}} (unsigned int n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_matrix_8h_a72381657ef512a52e067d4a6112e1d4c}\label{_matrix_8h_a72381657ef512a52e067d4a6112e1d4c}} 
+\index{Matrix.\+h@{Matrix.\+h}!identity@{identity}}
+\index{identity@{identity}!Matrix.\+h@{Matrix.\+h}}
+\subsubsection{\texorpdfstring{identity()}{identity()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$T$>$ identity (\begin{DoxyParamCaption}\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_matrix_8h_ac017769957d46ba9c2ac30818a147830}\label{_matrix_8h_ac017769957d46ba9c2ac30818a147830}} 
+\index{Matrix.\+h@{Matrix.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix.\+h@{Matrix.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ T $>$ \&}]{a }\end{DoxyParamCaption})}
+
