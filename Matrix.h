@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cassert>
 #include <exception>
+#include <string>
 #include <stdexcept>
 #include "ColumnPointer.h"
 namespace core{
@@ -15,6 +16,14 @@ namespace core{
 		Matrix(const Matrix& o);
 		Matrix(Matrix&& o);
 		~Matrix();
+		/**
+			Careful, this function costs quite some time for large matrices
+			@brief Transposes the matrix
+		*/
+		void transpose();
+		Matrix<T> transposed();
+		std::string toMatlabString() const;
+		std::string toWolframString() const;
 		void multInto(Matrix& space, const Matrix& other) const;
 		void multInto(Matrix& space, const Matrix& other, bool secondSymmetric) const;
 		Matrix mult(const Matrix& other) const;
@@ -95,6 +104,62 @@ namespace core{
 		if(data != nullptr)
 		delete[] data;
 		data = nullptr;
+	}
+	template<typename T>
+	void Matrix<T>::transpose(){
+		Matrix cp(n,m);
+		for(int i = 0;i < m;i++){
+			for(int ih = 0;ih < n;ih++){
+				cp[i][ih] = this[0][ih][i];
+			}
+		}
+		swap(cp);
+	}
+	template<typename T>
+	Matrix<T> Matrix<T>::transposed(){
+		Matrix cp(n,m);
+		for(int i = 0;i < m;i++){
+			for(int ih = 0;ih < n;ih++){
+				cp[i][ih] = this[0][ih][i];
+			}
+		}
+		return cp;
+	}
+	template<typename T>
+	std::string Matrix<T>::toMatlabString() const{
+		std::string ret;
+		ret += "[";
+		for(int i = 0;i < m;i++){
+			for(int ih = 0;ih < n;ih++){
+				ret += std::to_string((double)(*this)[i][ih]);
+				if(ih < (n - 1)){
+					ret += " ";
+				}
+			}
+			ret += "; ";
+		}
+		ret += "]";
+		return ret;
+	}
+	template<typename T>
+	std::string Matrix<T>::toWolframString() const{
+		std::string ret;
+		ret += "{";
+		for(int i = 0;i < m;i++){
+			ret += "{";
+			for(int ih = 0;ih < n;ih++){
+				ret += std::to_string((double)(*this)[i][ih]);
+				if(ih < (n - 1)){
+					ret += ", ";
+				}
+			}
+			ret += "}";
+			if(i < (m - 1)){
+				ret += ", ";
+			}
+		}
+		ret += "}";
+		return ret;
 	}
 	template<typename T>
 	Matrix<T> Matrix<T>::mult(const Matrix<T>& other, bool secondSymmetric) const{
@@ -212,9 +277,21 @@ namespace core{
 	}
 	template<typename T>
 	std::ostream& operator<<(std::ostream& out,const Matrix<T>& a){
+		unsigned int space = 0;
 		for(int i = 0;i < a.m;i++){
 			for(int ih = 0;ih < a.n;ih++){
-				out << a.data[i * a.n + ih];
+				unsigned int tspace = std::to_string((double)(a.data[i * a.n + ih])).size();
+				space = std::max(space,tspace);
+			}
+		}
+		for(int i = 0;i < a.m;i++){
+			for(int ih = 0;ih < a.n;ih++){
+				std::string frag = "";
+				frag += std::to_string((double)(a.data[i * a.n + ih]));
+				while(frag.size() < space){
+					frag = " " + frag;
+				}
+				out << frag;
 				if(ih < a.n - 1)
 					out << " ";
 			}

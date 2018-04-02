@@ -1,24 +1,8 @@
-#include <quadmath.h>
-namespace std{
-	/**
-		@return The square root of arg
-	*/
-	inline __float128 sqrt(const __float128& arg){
-		return sqrtq(arg);
-	}
-	/**
-		@return The absolute value of arg
-	*/
-	inline __float128 abs(const __float128& arg){
-		if(arg >= 0)
-		return arg;
-		return -arg;
-	}
-}
 #include <random>
 #include "Matrix.h"
 #include "Permutation.h"
 #include "ColumnPointer.h"
+#include "float128.h"
 #include <iostream>
 #include <cmath>
 #include "LU.h"
@@ -26,6 +10,7 @@ namespace std{
 #include "QR.h"
 #include "util.h"
 #include "kernel.h"
+#include "eigen.h"
 #include <chrono>
 #include <exception>
 #include <stdexcept>
@@ -40,7 +25,7 @@ namespace std{
 std::mt19937_64 gen;
 std::chrono::high_resolution_clock cloc;
 using qu = __float128;
-using type_f = double;
+using type_f = qu;
 type_f s = 0.4564;
 std::uniform_int_distribution<int> dis(-10,10);
 
@@ -92,7 +77,7 @@ namespace test{
 		}
 		return a;
 	}
-	#define diff 5
+	#define diff 0
 	template<typename T>
 	core::Matrix<T> randomMat(unsigned int si){
 		core::Matrix<type_f> a(si,si);
@@ -101,16 +86,13 @@ namespace test{
 				if(ih > si - diff){
 					a[i][ih] = a[i][si - diff] * 2 + a[i][si - diff - 1] * (-3);
 				}
-				else if(ih == 3){
-					a[i][ih] = a[i][ih - 1] * 7;
-				}
 				else{
 					a[i][ih] = dis(gen);
 					if(a[i][ih] < 50){
-						a[i][ih] /= 1000;
+						//a[i][ih] /= 1000;
 					}
 					else if(a[i][ih] > 50){
-						a[i][ih] *= 1000;
+						//a[i][ih] *= 1000;
 					}
 				}
 			}
@@ -141,4 +123,10 @@ int main(){
 	std::cout << "Multing finished" << std::endl;
 	std::cout << "Fehler QR: " << avgDist(prod1, a) << std::endl;
 	std::cout << "Fehler LU: " << avgDist(prod2, prod3) << std::endl;
+	Matrix<type_f> d(0);Matrix<type_f> v(0);
+	a = a.mult(a.transposed());
+	eig(a,&v,&d);
+	std::cout << a.toMatlabString() << std::endl;
+	std::cout << kernelDim(a) << std::endl;
+	std::cout << "Eigenvectors: " << std::endl << v << std::endl;
 }
