@@ -42,13 +42,19 @@ namespace core{
 		else
 		*D = m;
 	}
+	/**
+	In a future far away maybe this function will work and then a documentation will follow.
+	@brief Hint: Do not use this function. It's bugged and it causes segmentation faults.
+	*/
 	template<typename T>
 	void eig(Matrix<T> m, Matrix<T>* V, Matrix<T>* D){
+		std::cout << "Eigstart" << std::endl;
 		if(m.m != m.n)
 			throw std::invalid_argument("Matrix must be square for eig()");
 		*D = Matrix<T>(0);
 		eig(m,D);
 		std::vector<Matrix<T>> eigenvectors;
+		Matrix<T> v (m.m,m.n);
 		for(int i = 0;i < D->m;i++){
 			T ev = (*D)[i][i];
 			Matrix<T> ms(m);
@@ -56,7 +62,6 @@ namespace core{
 				ms[x][x] -= ev;
 			}
 			eigenvectors.push_back(kernel(ms));
-			Matrix<T> v (m.m,m.n);
 			unsigned int gi = 0;
 			for(int i = 0;i < eigenvectors.size();i++){
 				for(int x = 0;x < eigenvectors[i].n;x++){
@@ -66,8 +71,10 @@ namespace core{
 					gi++;
 				}
 			}
-			*V = v;
 		}
+		std::cout << v.m << std::endl;
+		*V = std::move(v);
+		std::cout << "Eigend" << std::endl;
 	}
 }
 #endif

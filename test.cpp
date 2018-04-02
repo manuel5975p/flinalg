@@ -25,9 +25,9 @@
 std::mt19937_64 gen;
 std::chrono::high_resolution_clock cloc;
 using qu = __float128;
-using type_f = qu;
+using type_f = double;
 type_f s = 0.4564;
-std::uniform_int_distribution<int> dis(-10,10);
+std::uniform_int_distribution<int> dis(-3,3);
 
 /**
 The test namespace
@@ -100,10 +100,14 @@ namespace test{
 		return a;
 	}
 }
-int main(){
+int main(int argc, char** args){
 	using namespace test;
 	using namespace core;
 	unsigned int size = 0;
+	if(argc == 2){
+		size = std::stoi(args[1]);
+	}
+	else
 	std::cin >> size;
 	Matrix<type_f> a = randomMat<type_f>(size);
 	Matrix<type_f> l(0), u(0), p(0),q(0),r(0);
@@ -124,9 +128,13 @@ int main(){
 	std::cout << "Fehler QR: " << avgDist(prod1, a) << std::endl;
 	std::cout << "Fehler LU: " << avgDist(prod2, prod3) << std::endl;
 	Matrix<type_f> d(0);Matrix<type_f> v(0);
-	a = a.mult(a.transposed());
-	eig(a,&v,&d);
-	std::cout << a.toMatlabString() << std::endl;
-	std::cout << kernelDim(a) << std::endl;
-	std::cout << "Eigenvectors: " << std::endl << v << std::endl;
+	Matrix<type_f> tr = a.transposed();
+	Matrix<type_f> sq = a.mult(tr);
+	eig(sq,&v,&d);
+	Matrix<type_f> eig1 = v.column(0);
+	std::cout << eig1 << std::endl;
+	std::cout << sq.mult(eig1) << std::endl;
+	//std::cout << a.toMatlabString() << std::endl;
+	//std::cout << kernelDim(a) << std::endl;
+	/*std::cout << "Eigenvectors: " << std::endl << v << std::endl;*/
 }

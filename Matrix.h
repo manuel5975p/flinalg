@@ -36,6 +36,13 @@ namespace core{
 		friend std::ostream& operator<<(std::ostream& out,const Matrix<U>& a);
 		T* operator[](unsigned int pos);
 		const T* operator[](unsigned int pos) const;
+		Matrix<T> column(int c){
+			Matrix<T> ret(m,1);
+			for(int i = 0;i < m;i++){
+				ret[i][0] = (*this)[i][c];
+			}
+			return ret;
+		}
 		Matrix<T>& operator=(Matrix<T>&& o);
 		Matrix<T>& operator=(const Matrix<T>& o);
 		ColumnPointer<T> getColumn(int c);
@@ -64,7 +71,7 @@ namespace core{
 	}
 	template<typename T>
 	Matrix<T>::Matrix(const Matrix<T>& o){
-		if(o.data == nullptr){if(data == nullptr)delete[] data;data = nullptr;m = 0;n = 0;}
+		if(o.data == nullptr){data = nullptr;m = 0;n = 0;}
 		else{
 			data = new T[o.n * o.m];
 			for(int i = 0;i < o.m * o.n;i++){
@@ -120,7 +127,7 @@ namespace core{
 		Matrix cp(n,m);
 		for(int i = 0;i < m;i++){
 			for(int ih = 0;ih < n;ih++){
-				cp[i][ih] = this[0][ih][i];
+				cp[ih][i] = this[0][i][ih];
 			}
 		}
 		return cp;
