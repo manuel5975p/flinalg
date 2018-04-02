@@ -57,6 +57,12 @@ namespace core{
 	T signum(T& t){
 		return t >= 0 ? 1 : -1;
 	}
+	/**
+	@brief Computes the QR decomposition of the Matrix m
+	@param m The Matrix to be decomposed
+	@param Q A pointer to the location where the orthogonal Matrix will be stored
+	@param R A pointer to the location where the upper triangular Matrix will be stored
+	*/
 	template<typename T>
 	void QR(Matrix<T> m, Matrix<T>* Q, Matrix<T>* R){
 		Matrix<T> HHSpace(m.m,m.m);
