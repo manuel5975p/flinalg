@@ -127,13 +127,15 @@ int main(int argc, char** args){
 	std::cout << "Multing finished" << std::endl;
 	std::cout << "Fehler QR: " << avgDist(prod1, a) << std::endl;
 	std::cout << "Fehler LU: " << avgDist(prod2, prod3) << std::endl;
-	Matrix<type_f> d(0);Matrix<type_f> v(0);
+	Matrix<type_f> d(0);Matrix<type_f> v(3,3);
 	Matrix<type_f> tr = a.transposed();
 	Matrix<type_f> sq = a.mult(tr);
 	eig(sq,&v,&d);
-	Matrix<type_f> eig1 = v.column(0);
+	std::cout << sq.toMatlabString() << std::endl;
+	std::cout << "V:\n" << v << "D:\n" << d << std::endl;
+	/*Matrix<type_f> eig1 = v.column(0);
 	std::cout << eig1 << std::endl;
-	std::cout << sq.mult(eig1) << std::endl;
+	std::cout << sq.mult(eig1) << std::endl;*/
 	//std::cout << a.toMatlabString() << std::endl;
 	//std::cout << kernelDim(a) << std::endl;
 	/*std::cout << "Eigenvectors: " << std::endl << v << std::endl;*/

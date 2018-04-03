@@ -6,10 +6,16 @@
 #include "Matrix.h"
 #include "LU.h"
 #include "QR.h"
-#define ZERO_THRESHOLD 0.00000001d
+#define ZERO_THRESHOLD 0.000000001d
 namespace core{
+	/**
+	It's basically mat.m - rank(m)
+	@brief Computes the kernel dimension of mat
+	@param mat The input matrix
+	@return dim(ker(mat))
+	*/
 	template<typename T>
-	unsigned int kernelDim(Matrix<T> m){
+	unsigned int kernelDim(Matrix<T> mat){
 		Matrix<T> l(0),u(0),p(0);
 		LU(m,&l,&u,&p);
 		unsigned int a = 0;
@@ -20,6 +26,11 @@ namespace core{
 		}
 		return a;
 	}
+	/**
+	@brief Computes a kernel basis of a matrix
+	@return A kernel basis.
+	@param m The input matrix
+	*/
 	template<typename T>
 	Matrix<T> kernel(const Matrix<T>& m){
 		if(m.m != m.n){
@@ -39,9 +50,10 @@ namespace core{
 			for(int ih = 0;ih < solvec.m;ih++){
 				solvec[ih][0] = (ih == emptyspots[i]);
 			}
-			for(int k = u.m;k >= 0;k--){
+			for(int k = u.m - 1;k >= 0;k--){
 				while(std::abs(u[k][k]) <= ZERO_THRESHOLD){
 					k--;
+					if(k < 0){goto end;}
 				}
 				T resid = 0;
 				for(int r = k + 1;r < u.m;r++){
@@ -49,6 +61,7 @@ namespace core{
 				}
 				solvec[k][0] = -resid / u[k][k];
 			}
+			end:
 			kernelVectors.push_back(std::move(solvec));
 		}
 		Matrix<T> ret(u.n,kernelVectors.size());

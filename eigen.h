@@ -24,7 +24,7 @@ namespace core{
 		}
 		Matrix<T> q(0),r(0);
 		Matrix<T> mspace(m);
-		for(int i = 0;i < 40;i++){
+		for(int i = 0;i < 100;i++){
 			QR(m,&q,&r);
 			r.multInto(mspace,q);
 			std::swap(mspace,m);
@@ -43,25 +43,35 @@ namespace core{
 		*D = m;
 	}
 	/**
-	In a future far away maybe this function will work and then a documentation will follow.
-	@brief Hint: Do not use this function. It's bugged and it causes segmentation faults.
+	The eigenvalues are stored in a diagonal matrix at *D, and the eigenvectors are stored in the matrix *V.
+	@brief Calculates eigenvalues and eigenvectors.
+	@param m The matrix to be analyzed
+	@param V Pointer to the eigenvector matrix
+	@param D Pointer to the diagonal matrix containing the corresponding eigenvalues
+	@throws std::invalid_argument if argument m is non square
 	*/
 	template<typename T>
 	void eig(Matrix<T> m, Matrix<T>* V, Matrix<T>* D){
-		std::cout << "Eigstart" << std::endl;
 		if(m.m != m.n)
 			throw std::invalid_argument("Matrix must be square for eig()");
 		*D = Matrix<T>(0);
 		eig(m,D);
 		std::vector<Matrix<T>> eigenvectors;
 		Matrix<T> v (m.m,m.n);
+		int alg_multp = 1;
 		for(int i = 0;i < D->m;i++){
+			
+			if(i < D->m - 1){
+				if(std::abs((*D)[i][i] - (*D)[i + 1][i + 1]) < 0.0000001){
+					continue;
+				}
+			}
 			T ev = (*D)[i][i];
 			Matrix<T> ms(m);
 			for(int x = 0;x < ms.m;x++){
 				ms[x][x] -= ev;
 			}
-			eigenvectors.push_back(kernel(ms));
+			eigenvectors.push_back(std::move(kernel(ms)));
 			unsigned int gi = 0;
 			for(int i = 0;i < eigenvectors.size();i++){
 				for(int x = 0;x < eigenvectors[i].n;x++){
@@ -69,12 +79,13 @@ namespace core{
 						v[ih][gi] = eigenvectors[i][ih][x];
 					}
 					gi++;
+					/*if(gi >= v.n){
+						std::cout << "Segv incoming" << std::endl;
+					}*/
 				}
 			}
 		}
-		std::cout << v.m << std::endl;
 		*V = std::move(v);
-		std::cout << "Eigend" << std::endl;
 	}
 }
 #endif
