@@ -14,6 +14,15 @@ namespace core{
 			std::cout << (double)(f);
 		return out;
 	}
+	/**
+	Decomposes a Matrix into a lower and an upper triangular matrix. By far faster then the QR decomposition,
+	but possibly numerically unstable.
+	@brief Computes the LU decomposition
+	@param m The matrix to be decomposed
+	@param L Pointer to the lower triangular matrix
+	@param U Pointer to the upper triangular matrix
+	@param P Pointer to the permutation matrix.
+	*/
 	template<typename T>
 	void LU(Matrix<T> m, Matrix<T>* L, Matrix<T>* U, Matrix<T>* P){
 		int crank = 0;
@@ -33,7 +42,7 @@ namespace core{
 					}
 				}
 				if(max_v == 0){
-					crank++;
+					crank++;//crank is useless
 					if(crank == m.m - 1)break;
 					continue;
 				}

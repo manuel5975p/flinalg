@@ -8,6 +8,7 @@
 #include "LU.h"
 #include <iomanip>
 #include "QR.h"
+#include "inverse.h"
 #include "util.h"
 #include "kernel.h"
 #include "eigen.h"
@@ -35,7 +36,9 @@ The test namespace
 namespace test{
 	
 	/**
+	@brief This function is horrible
 	@return The difference of the two matrices
+	@throws std::invalid_argument If the dimensions are no matching
 	*/
 	type_f difference(const core::Matrix<type_f>& a,const core::Matrix<type_f>& b){
 		if(a.n != b.n || a.m != b.m)
@@ -50,7 +53,9 @@ namespace test{
 		return sum;
 	}
 	/**
+	@brief Computes a squared error between to matrices
 	@return The square root of the average square error
+	@throws std::invalid_argument If the dimensions are no matching
 	*/
 	type_f avgDist(const core::Matrix<type_f>& a,const core::Matrix<type_f>& b){
 		if(a.n != b.n || a.m != b.m)
@@ -65,7 +70,7 @@ namespace test{
 		return (std::sqrt(sum) / a.m) / a.n;
 	}
 	/**
-	Generates a Hilbert Matrix
+	@brief Generates a Hilbert Matrix
 	*/
 	template<typename T>
 	core::Matrix<T> hilbertMat(unsigned int si){
@@ -110,6 +115,9 @@ int main(int argc, char** args){
 	else
 	std::cin >> size;
 	Matrix<type_f> a = randomMat<type_f>(size);
+	std::cout << a << std::endl;
+	std::cout << inverse(a);
+	/*
 	Matrix<type_f> l(0), u(0), p(0),q(0),r(0);
 	std::stopwatch sw;
 	std::cout << sw.elapsed() << std::endl;
@@ -132,7 +140,7 @@ int main(int argc, char** args){
 	Matrix<type_f> sq = a.mult(tr);
 	eig(sq,&v,&d);
 	std::cout << sq.toMatlabString() << std::endl;
-	std::cout << "V:\n" << v << "D:\n" << d << std::endl;
+	std::cout << "V:\n" << v << "D:\n" << d << std::endl;*/
 	/*Matrix<type_f> eig1 = v.column(0);
 	std::cout << eig1 << std::endl;
 	std::cout << sq.mult(eig1) << std::endl;*/

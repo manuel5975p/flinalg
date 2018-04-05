@@ -130,22 +130,32 @@ namespace core{
 			std::swap(n,other.n);
 		}
 		/**
-		This function is mainly used in LU decomposition and solving by backsubstitution.
-		@brief Adds a row multiplied with factor to another row
-		@param from Source row
-		@param to Destination row
-		@param factor The multiplying factor
+		* This function is mainly used in LU decomposition and solving by backsubstitution.
+		* @brief Adds a row multiplied with factor to another row
+		* @param from Source row
+		* @param to Destination row
+		* @param factor The multiplying factor
 		*/
 		void addRow(unsigned int from,unsigned int to,const T& factor);
 		/**
-		This function is mainly used in LU decomposition and solving by backsubstitution.
-		@brief Adds a row multiplied with factor to another row
-		@param from Source row
-		@param to Destination row
-		@param factor The multiplying factor
-		@param startpos The first nonzero element of the source row
+		* This function is mainly used in LU decomposition and solving by backsubstitution.
+		* @brief Adds a row multiplied with factor to another row
+		* @param from Source row
+		* @param to Destination row
+		* @param factor The multiplying factor
+		* @param startpos The first nonzero element of the source row
 		*/
 		void addRow(unsigned int from,unsigned int to,const T& factor, unsigned int startpos);
+		/**
+		* This function is mainly used in LU decomposition and solving by backsubstitution.
+		* @brief Adds a row multiplied with factor to another row
+		* @param from Source row
+		* @param to Destination row
+		* @param factor The multiplying factor
+		* @param startpos The first nonzero element of the source row
+		* @param endpos The last nonzero element of the source row
+		*/
+		void addRow(unsigned int from,unsigned int to,const T& factor, unsigned int startpos,unsigned int endpos);
 		/**
 		@brief Permutes two rows
 		*/
@@ -424,6 +434,16 @@ namespace core{
 		T* fr = data + from * n + startpos;
 		T* t = data + to * n + startpos;
 		for(int i = 0;i < n - startpos;i++){
+			t[i] += (fr[i] * factor);
+		}
+	}
+	template<typename T>
+	void Matrix<T>::addRow(unsigned int from, unsigned int to, const T& factor,unsigned int startpos,unsigned int endpos){
+		if(endpos < startpos)
+			throw std::invalid_argument("Endpos is smaller than startpos");
+		T* fr = data + from * n + startpos;
+		T* t = data + to * n + startpos;
+		for(int i = 0;i < endpos - startpos;i++){
 			t[i] += (fr[i] * factor);
 		}
 	}

@@ -17,7 +17,7 @@ namespace core{
 	template<typename T>
 	unsigned int kernelDim(Matrix<T> mat){
 		Matrix<T> l(0),u(0),p(0);
-		LU(m,&l,&u,&p);
+		LU(mat,&l,&u,&p);
 		unsigned int a = 0;
 		for(int i = 0;i < std::min(u.m,u.n);i++){
 			if(std::abs(u[i][i]) <= ZERO_THRESHOLD){
