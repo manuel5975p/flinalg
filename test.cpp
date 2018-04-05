@@ -115,8 +115,13 @@ int main(int argc, char** args){
 	else
 	std::cin >> size;
 	Matrix<type_f> a = randomMat<type_f>(size);
-	std::cout << a << std::endl;
-	std::cout << inverse(a);
+	Matrix<type_f> inv(0);
+	std::stopwatch sw;
+	inv = inverse(a);
+	unsigned long long elapsed = sw.elapsed();
+	std::cout << (((double)(elapsed / 100)) / 10000) << "ms" << std::endl;
+	Matrix<type_f> I = identity<type_f>(size);
+	std::cout << "Invertierfehler: " << avgDist(I,a.mult(inv)) << std::endl;
 	/*
 	Matrix<type_f> l(0), u(0), p(0),q(0),r(0);
 	std::stopwatch sw;
