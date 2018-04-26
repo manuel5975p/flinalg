@@ -51,6 +51,8 @@ namespace core{
 		}
 		for(int i = 0;i < I.n;i++){
 			T mult = ((T)1.0) / m[i][i];
+			if(i < I.n - 1)
+			__builtin_prefetch(I[i + 1],1,0);
 			for(int x = 0;x < I.m;x++)
 			I[i][x] *= mult;
 		}

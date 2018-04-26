@@ -26,9 +26,9 @@
 std::mt19937_64 gen;
 std::chrono::high_resolution_clock cloc;
 using qu = __float128;
-using type_f = double;
+using type_f = float;
 type_f s = 0.4564;
-std::uniform_int_distribution<int> dis(-3,3);
+std::uniform_int_distribution<int> dis(-100,100);
 
 /**
 The test namespace
@@ -119,7 +119,7 @@ int main(int argc, char** args){
 	std::stopwatch sw;
 	inv = inverse(a);
 	unsigned long long elapsed = sw.elapsed();
-	std::cout << (((double)(elapsed / 100)) / 10000) << "ms" << std::endl;
+	std::cout << elapsed / 1000 << "mikros" << std::endl;
 	Matrix<type_f> I = identity<type_f>(size);
 	std::cout << "Invertierfehler: " << avgDist(I,a.mult(inv)) << std::endl;
 	/*

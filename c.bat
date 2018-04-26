@@ -1,1 +1,1 @@
-"C:\Program Files\mingw-w64\x86_64-7.2.0-win32-seh-rt_v5-rev1\mingw64\bin\g++.exe" test.cpp -O3 -std=c++17 -march=native -static -lquadmath
+"C:\Program Files\mingw-w64\x86_64-7.2.0-win32-seh-rt_v5-rev1\mingw64\bin\g++.exe" test.cpp -E -O3 -std=c++17 -march=native -static -lquadmath
